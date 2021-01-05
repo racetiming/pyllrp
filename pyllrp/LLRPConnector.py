@@ -124,6 +124,10 @@ class LLRPConnector( object ):
 		response = WaitForMessage( message.MessageID, self.readerSocket, self.callHandler )
 		return response
 		
+	def send( self, message ):
+		''' Send a message to the reader. '''
+		message.send( self.readerSocket )
+
 	def checkKeepGoing( self ):
 		''' Check if we should continue the reader thread. '''
 		if not self.keepGoing:
